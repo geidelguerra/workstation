@@ -1,0 +1,17 @@
+---
+# roles/common/tasks/main.yml
+
+- name: Install common utilities
+  apt:
+    pkg:
+    - apt-transport-https
+    - git
+    - unzip
+    state: present
+
+- name: Config Git
+  shell: |
+    git config --global user.name "{{ git_user_name }}"
+    git config --global user.email "{{ git_user_email }}"
+  become: false
+  when: git_user_name or git_user_email

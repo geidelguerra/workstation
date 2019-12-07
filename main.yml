@@ -1,0 +1,15 @@
+---
+# main.yml
+
+- name: Setup workstation environment
+  hosts: localhost
+  connection: local
+  become: true
+  become_method: sudo
+  roles:
+  - common
+  - php
+  - composer
+  - mariadb
+  - nodejs
+  - vscode

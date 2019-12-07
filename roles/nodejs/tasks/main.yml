@@ -1,0 +1,16 @@
+---
+# nodejs/tasks.main.yml
+
+- name: Download Nodejs setup
+  get_url:
+    url: "https://deb.nodesource.com/setup_{{ nodejs_version }}.x"
+    dest: "/tmp/setup_10.x"
+  become: false
+
+- name: Run Nodejs setup
+  command: bash "/tmp/setup_{{ nodejs_version }}.x"
+
+- name: Install Nodejs
+  apt:
+    name: nodejs
+    state: present
