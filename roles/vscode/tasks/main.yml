@@ -1,6 +1,4 @@
 ---
-# roles/vscode/tasks/main.yml
-
 - name: Add Microsoft GPG key
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
@@ -22,4 +20,6 @@
   command: "code --install-extension {{ item }}"
   when: (vscode_extensions is defined) and (vscode_extensions) and (vscode_extensions|length > 0)
   with_items: "{{ vscode_extensions }}"
-  become: false
+  register: vscode_extension
+  changed_when: "'was successfully installed' in vscode_extension.stdout"
+  become: no

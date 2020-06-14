@@ -1,6 +1,4 @@
 ---
-# roles/common/tasks/main.yml
-
 - name: Install common utilities
   apt:
     pkg:

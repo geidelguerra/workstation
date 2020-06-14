@@ -1,6 +1,4 @@
 ---
-# roles/composers/tasks/main.yml
-
 - name: Download Composer installer
   get_url:
     url: "https://getcomposer.org/installer"

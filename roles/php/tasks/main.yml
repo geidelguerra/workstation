@@ -1,6 +1,4 @@
 ---
-# roles/php/tasks/main.yml
-
 - name: Add PHP repository
   apt_repository:
     repo: ppa:ondrej/php

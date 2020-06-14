@@ -1,11 +1,13 @@
 ---
-# main.yml
-
 - name: Setup workstation environment
-  hosts: localhost
+  hosts: all
   connection: local
-  become: true
+  gather_facts: no
+  become: yes
   become_method: sudo
+  become_user: root
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   roles:
   - common
   - php

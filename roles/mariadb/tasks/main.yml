@@ -1,6 +1,4 @@
 ---
-# roles/mariadb/tasks/main.yml
-
 - name: Download MariaDB setup
   get_url:
     url: https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
