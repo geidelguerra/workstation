@@ -13,10 +13,10 @@ See [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/install
 
 - git
 - unzip (useful when installing composer dependencies)
-- php 7.3 + extensions
+- php 7.4 + extensions
 - composer
 - mariadb
-- nodejs 10
+- nodejs 12
 - vscode + extensions
 
 Both php and nodejs versions are defined as vars in ```group_vars/all.yml```
