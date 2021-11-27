@@ -1,14 +1,20 @@
 ---
-- name: Download Nodejs setup
-  get_url:
-    url: "https://deb.nodesource.com/setup_{{ nodejs_version }}.x"
-    dest: "/tmp/setup_{{ nodejs_version }}.x"
-  become: false
+- name: Add NodeJs APT repo GPG key
+  ansible.builtin.apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    keyring: /usr/share/keyrings/nodesource.gpg
+    state: present
+  become: true
 
-- name: Run Nodejs setup
-  command: bash "/tmp/setup_{{ nodejs_version }}.x"
+- name: Add NodeJs APT repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_{{ nodejs_version }}.x focal main"
+    state: present
+    filename: nodesource
+  become: true
 
-- name: Install Nodejs
-  apt:
+- name: Install NodeJs
+  ansible.builtin.apt:
     name: nodejs
     state: present
+  become: true

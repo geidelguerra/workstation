@@ -1,25 +1,26 @@
 ---
 - name: Add Microsoft GPG key
-  apt_key:
+  ansible.builtin.apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
+  become: true
 
 - name: Add VSCode repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb https://packages.microsoft.com/repos/vscode stable main
     state: present
     filename: vscode
+  become: true
 
 - name: Install VSCode
-  apt:
+  ansible.builtin.apt:
     name: code
     state: present
-    update_cache: true
+  become: true
 
 - name: Install VSCode extensions
-  command: "code --install-extension {{ item }}"
+  ansible.builtin.command: "code --install-extension {{ item }}"
   when: (vscode_extensions is defined) and (vscode_extensions) and (vscode_extensions|length > 0)
   with_items: "{{ vscode_extensions }}"
   register: vscode_extension
   changed_when: "'was successfully installed' in vscode_extension.stdout"
-  become: no

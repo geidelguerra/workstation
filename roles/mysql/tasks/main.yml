@@ -1,0 +1,28 @@
+---
+- name: Install MySQL
+  ansible.builtin.apt:
+    name: mysql-server
+    state: present
+  become: true
+
+- name: Install PyMySQL
+  ansible.builtin.apt:
+    name: python3-pymysql
+    state: present
+  become: true
+
+- name: Set root user password
+  community.mysql.mysql_user:
+    name: root
+    password: "{{ mysql_root_password }}"
+    check_implicit_admin: true
+  become: true
+
+- name: Copy MySQL credentials file
+  ansible.builtin.template:
+    src: my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
+    mode: 0600
+  become: true

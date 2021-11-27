@@ -1,0 +1,47 @@
+---
+- name: Clone Alacritty repo
+  ansible.builtin.git:
+    repo: git@github.com:alacritty/alacritty.git
+    dest: "~/alacritty"
+
+# TODO: Install rustup and cargo
+# TODO: Compile
+
+- name: Link config file
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/alacritty.yml'
+    dest: ~/.config/alacritty.yml
+    state: link
+    force: true
+
+- name: Copy exec to path
+  ansible.builtin.copy:
+    src: ~/alacritty/target/release/alacritty
+    dest: /usr/local/bin
+    force: true
+  become: true
+
+- name: Copy desktop logo
+  ansible.builtin.copy:
+    src: ~/alacritty/extra/logo/alacritty-term.svg
+    dest: /usr/share/pixmaps/Alacritty.svg
+    force: true
+  become: true
+
+- name: Copy desktop entry
+  ansible.builtin.copy:
+    src: ~/alacritty/extra/linux/Alacritty.desktop
+    dest: /usr/share/applications/Alacritty.desktop
+  become: true
+  register: desktop_entry
+
+- name: Update desktop database
+  ansible.builtin.command: update-desktop-database
+  become: true
+  when: desktop_entry.changed
+
+- name: Set as default terminal
+  ansible.builtin.alternatives:
+    name: x-terminal-emulator
+    path: /usr/local/bin/alacritty
+  become: true

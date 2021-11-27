@@ -1,20 +1,57 @@
 ---
+# Git
 git_user_name: Geidel Guerra
-git_user_email: geidelguerra@gmail.com
-nodejs_version: 12
-php_version: 7.4
+git_user_email: geidelguerra@protonmail.com
+
+# NodeJs
+nodejs_version: 14
+
+# PHP
+php_versions:
+  - 8.0
+  - 8.1
+default_php_version: 8.0
+
+# MySQL
+mysql_root_password: password
+
+# VsCode
 vscode_extensions:
+- bmewburn.vscode-intelephense-client
 - bradlc.vscode-tailwindcss
 - dbaeumer.vscode-eslint
-- DotJoshJohnson.xml
+- eamodio.gitlens
 - felixfbecker.php-intellisense
+- formulahendry.auto-close-tag
+- formulahendry.auto-rename-tag
 - foxundermoon.shell-format
-- geequlim.godot-tools
+- Gruntfuggly.todo-tree
+- heybourn.headwind
+- junstyle.php-cs-fixer
+- k--kato.docomment
 - Leopotam.csharpfixformat
+- m1guelpf.better-pest
 - mikestead.dotenv
+- millennIumAMbiguity.processing-formatter
 - ms-dotnettools.csharp
 - ms-python.python
+- ms-python.vscode-pylance
+- ms-toolsai.jupyter
+- ms-toolsai.jupyter-keymap
+- ms-toolsai.jupyter-renderers
+- ms-vscode-remote.remote-containers
+- ms-vscode-remote.remote-ssh
+- ms-vscode-remote.remote-ssh-edit
+- ms-vscode-remote.remote-wsl
+- ms-vscode-remote.vscode-remote-extensionpack
+- ms-vscode.cpptools
 - octref.vetur
 - onecentlin.laravel-blade
+- redhat.ansible
 - redhat.vscode-yaml
-- vscoss.vscode-ansible
+- richie5um2.vscode-sort-json
+- rid9.datetime
+- savatia.vspickfile
+- sibiraj-s.vscode-scss-formatter
+- streetsidesoftware.code-spell-checker
+- swordev.phpstan

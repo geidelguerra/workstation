@@ -1,12 +1,4 @@
 ---
-- name: Install common utilities
-  apt:
-    pkg:
-    - apt-transport-https
-    - git
-    - unzip
-    state: present
-
 - name: Config Git
   shell: |
     git config --global user.name "{{ git_user_name }}"

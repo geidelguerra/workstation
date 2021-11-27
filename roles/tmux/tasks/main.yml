@@ -1,0 +1,13 @@
+---
+- name: Install tmux
+  ansible.builtin.apt:
+    name: tmux
+    state: present
+  become: true
+
+- name: Link config file
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/tmux.conf'
+    dest: ~/.tmux.conf
+    state: link
+    force: true
