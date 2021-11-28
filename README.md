@@ -19,3 +19,5 @@ See [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/install
 - VsCode
 - Alacritty
 - ZSH
+- Brave
+- Enpass
