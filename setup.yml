@@ -45,10 +45,11 @@
     - vscode
     - ohmyzsh
     - brave
-    # - enpass
+    - enpass
     # - 1password
     # - chrome
     # - vlc
+    # - qbittorrent
 
   post_tasks:
     - name: Cleanup

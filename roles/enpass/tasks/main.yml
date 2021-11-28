@@ -1,0 +1,20 @@
+---
+- name: Add Enpass APT repo GPG key
+  ansible.builtin.apt_key:
+    url: https://apt.enpass.io/keys/enpass-linux.key
+    keyring: /usr/share/keyrings/enpass.gpg
+    state: present
+  become: true
+
+- name: Add Enpass APT repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/enpass.gpg] https://apt.enpass.io/ stable main"
+    state: present
+    filename: enpass
+  become: true
+
+- name: Install Enpass
+  ansible.builtin.apt:
+    name: enpass
+    state: present
+  become: true
