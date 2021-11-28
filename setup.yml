@@ -32,6 +32,7 @@
           - unzip
           - whois
           - zsh
+          - htop
       become: true
 
   roles:
