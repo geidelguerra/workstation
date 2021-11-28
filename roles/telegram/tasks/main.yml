@@ -1,0 +1,19 @@
+---
+- name: Download Telegram binaries
+  ansible.builtin.get_url:
+    url: https://telegram.org/dl/desktop/linux
+    dest: /tmp/tsetup.tar.xz
+
+- name: Extract binaries
+  ansible.builtin.unarchive:
+    src: /tmp/tsetup.tar.xz
+    dest: /opt
+    owner: "{{ current_user }}"
+    group: "{{ current_user }}"
+  become: true
+
+- name: Link binary executable
+  ansible.builtin.file:
+    src: /opt/Telegram/Telegram
+    dest: /usr/bin/telegram
+  become: true

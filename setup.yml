@@ -50,6 +50,9 @@
     # - chrome
     # - vlc
     # - qbittorrent
+    # - lutris
+    - telegram
+    # - discord
 
   post_tasks:
     - name: Cleanup
