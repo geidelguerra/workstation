@@ -44,7 +44,7 @@
     - tmux
     - vscode
     - ohmyzsh
-    # - brave
+    - brave
     # - enpass
     # - 1password
     # - chrome

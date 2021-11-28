@@ -1,0 +1,20 @@
+---
+- name: Add Brave APT repo GPG key
+  ansible.builtin.apt_key:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    keyring: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+    state: present
+  become: true
+
+- name: Add Brave APT repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
+    state: present
+    filename: brave-browser-release
+  become: true
+
+- name: Install Brave
+  ansible.builtin.apt:
+    name: brave-browser
+    state: present
+  become: true
