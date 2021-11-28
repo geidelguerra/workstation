@@ -33,6 +33,7 @@
           - whois
           - zsh
           - htop
+          - tar
       become: true
 
   roles:

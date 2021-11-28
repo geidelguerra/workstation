@@ -1,0 +1,20 @@
+---
+- name: Add 1Password APT repo GPG key
+  ansible.builtin.apt_key:
+    url: https://downloads.1password.com/linux/keys/1password.asc
+    keyring: /usr/share/keyrings/1password-archive-keyring.gpg
+    state: present
+  become: true
+
+- name: Add 1Password APT repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/1password-archive-keyring.gpg arch=amd64] https://downloads.1password.com/linux/debian/amd64 stable main"
+    state: present
+    filename: 1password
+  become: true
+
+- name: Install 1Password
+  ansible.builtin.apt:
+    name: 1password
+    state: present
+  become: true
