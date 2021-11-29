@@ -34,6 +34,7 @@
           - zsh
           - htop
           - tar
+          - vlc
       become: true
 
   roles:
@@ -47,13 +48,13 @@
     - ohmyzsh
     - brave
     - enpass
+    - telegram
     # - 1password
     # - chrome
-    # - vlc
     # - qbittorrent
     # - lutris
-    - telegram
     # - discord
+    # - youtube-dl
 
   post_tasks:
     - name: Cleanup
