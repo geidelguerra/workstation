@@ -11,13 +11,43 @@ See [Ansible Installation Guide](https://docs.ansible.com/ansible/latest/install
 
 **What's included**
 
+### Tools
+
 - Git
-- PHP
 - Composer
-- NodeJs
-- MySQL
-- VsCode
-- Alacritty
-- ZSH
+- Oh My ZSH
+
+### Browsers
+
 - Brave
+- Chrome
+
+### Runtimes
+
+- PHP
+- NodeJs
+
+### Databases
+
+- MySQL
+
+### Code Editors
+
+- VsCode
+
+### Password Managers
+
 - Enpass
+- 1Password
+
+### Shells
+
+- ZSH
+
+### Terminal emulators
+
+- Alacritty
+
+### Messaging
+
+- Telegram
