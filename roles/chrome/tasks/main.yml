@@ -1,0 +1,13 @@
+---
+- name: Add Chrome APT repo
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    state: present
+    filename: google-chrome
+  become: true
+
+- name: Install Chrome
+  ansible.builtin.apt:
+    name: google-chrome-stable
+    state: present
+  become: true
