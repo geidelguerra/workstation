@@ -58,3 +58,4 @@ vscode_extensions:
 - sibiraj-s.vscode-scss-formatter
 - streetsidesoftware.code-spell-checker
 - swordev.phpstan
+- hashicorp.terraform

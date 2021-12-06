@@ -45,7 +45,8 @@
     - mysql
     - alacritty
     - tmux
-    - vscode
+    - role: vscode
+      tags: [ide]
     - ohmyzsh
     - brave
     - enpass
