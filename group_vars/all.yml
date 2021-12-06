@@ -15,6 +15,9 @@ default_php_version: 8.0
 # MySQL
 mysql_root_password: password
 
+# Terraform
+terraform_version: 1.0.11
+
 # VsCode
 vscode_extensions:
 - bmewburn.vscode-intelephense-client

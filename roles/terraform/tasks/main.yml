@@ -1,0 +1,12 @@
+---
+- name: Download Terraform binary
+  ansible.builtin.get_url:
+    url: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+    dest: "/tmp/terraform_{{ terraform_version }}_linux_amd64.zip"
+    checksum: "sha256:https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_SHA256SUMS"
+
+- name: Unarchive Terraform binary
+  ansible.builtin.unarchive:
+    src: /tmp/terraform_{{ terraform_version }}_linux_amd64.zip
+    dest: /usr/local/bin
+  become: true
