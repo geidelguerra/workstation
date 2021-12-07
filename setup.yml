@@ -38,6 +38,14 @@
           - newsboat
       become: true
 
+    - name: Install pip packages
+      ansible.builtin.pip:
+        name:
+          - awscli
+        state: present
+        extra_args: '--user'
+      tags: [pip]
+
   roles:
     - php
     - composer
