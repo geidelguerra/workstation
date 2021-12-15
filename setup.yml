@@ -2,7 +2,7 @@
 - name: Setup workstation
   hosts: localhost
   connection: local
-  gather_facts: yes
+  gather_facts: true
   become_method: sudo
   vars:
     current_user: "{{ ansible_user_id }}"

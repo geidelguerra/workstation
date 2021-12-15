@@ -3,6 +3,7 @@
   ansible.builtin.git:
     repo: git@github.com:alacritty/alacritty.git
     dest: "~/alacritty"
+    version: master
 
 # TODO: Install rustup and cargo
 # TODO: Compile

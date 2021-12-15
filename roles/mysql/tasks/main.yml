@@ -17,6 +17,7 @@
     password: "{{ mysql_root_password }}"
     check_implicit_admin: true
   become: true
+  no_log: true
 
 - name: Copy MySQL credentials file
   ansible.builtin.template:
