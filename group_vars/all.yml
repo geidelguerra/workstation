@@ -59,3 +59,4 @@ vscode_extensions:
   - streetsidesoftware.code-spell-checker
   - swordev.phpstan
   - hashicorp.terraform
+  - ms-azuretools.vscode-docker
