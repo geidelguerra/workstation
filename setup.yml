@@ -57,7 +57,7 @@
   roles:
     # - php
     # - composer
-    # - nodejs
+    - nodejs
     # - mysql
     # - alacritty
     - tmux
