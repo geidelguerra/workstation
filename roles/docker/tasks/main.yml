@@ -1,0 +1,36 @@
+---
+- name: Add Docker APT repo GPG key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    keyring: /usr/share/keyrings/docker-archive-keyring.gpg
+    state: present
+  become: true
+
+- name: Add Docker APT repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+    filename: docker
+  become: true
+
+- name: Install Docker
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+  become: true
+
+- name: Ensure Docker service is enabled and started
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+  become: true
+
+- name: Ensure current user can run docker withou sudo
+  ansible.builtin.user:
+    name: "{{ current_user }}"
+    groups: docker
+    append: true

@@ -9,6 +9,11 @@
     ansible_python_interpreter: /usr/bin/python3
 
   pre_tasks:
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_distribution_release
+      tags: [debug]
+
     - name: Update system
       ansible.builtin.apt:
         update_cache: true
@@ -20,6 +25,9 @@
         name:
           - apt-transport-https
           - software-properties-common
+          - ca-certificates
+          - gnupg
+          - lsb-release
           - build-essential
           - curl
           - wget
@@ -47,11 +55,11 @@
       tags: [pip]
 
   roles:
-    - php
-    - composer
+    # - php
+    # - composer
     - nodejs
-    - mysql
-    - alacritty
+    # - mysql
+    # - alacritty
     - tmux
     - role: vscode
       tags: [ide]
@@ -62,6 +70,8 @@
     - 1password
     - chrome
     - terraform
+    - role: docker
+      tags: [docker]
     # - qbittorrent
     # - lutris
     # - discord
