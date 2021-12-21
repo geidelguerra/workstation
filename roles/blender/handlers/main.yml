@@ -1,0 +1,4 @@
+---
+- name: Update desktop database
+  ansible.builtin.command: update-desktop-database
+  become: true

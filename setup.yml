@@ -72,6 +72,9 @@
     - terraform
     - role: docker
       tags: [docker]
+    - role: blender
+      tags: [3d]
+    # - godot
     # - qbittorrent
     # - lutris
     # - discord

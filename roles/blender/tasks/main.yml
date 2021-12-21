@@ -1,0 +1,26 @@
+- name: Download Blender binaries
+  ansible.builtin.get_url:
+    url: https://mirror.clarkson.edu/blender/release/Blender3.0/blender-3.0.0-linux-x64.tar.xz
+    dest: /tmp/blender-3.0.0-linux-x64.tar.xz
+
+- name: Unarchive binaries
+  ansible.builtin.unarchive:
+    src: /tmp/blender-3.0.0-linux-x64.tar.xz
+    dest: /opt/
+  become: true
+
+- name: Add exec to path
+  ansible.builtin.file:
+    src: /opt/blender-3.0.0-linux-x64/blender
+    dest: /usr/local/bin/blender
+    state: link
+  become: true
+
+- name: Link desktop entry
+  ansible.builtin.file:
+    src: /opt/blender-3.0.0-linux-x64/blender.desktop
+    dest: /usr/share/applications/blender.desktop
+    state: link
+  become: true
+  notify:
+    - Update desktop database
