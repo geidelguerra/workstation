@@ -1,0 +1,27 @@
+---
+- name: Download Godot binaries
+  ansible.builtin.get_url:
+    url: "https://downloads.tuxfamily.org/godotengine/{{ godot_version }}/Godot_v{{ godot_version }}-stable_x11.64.zip"
+    dest: /tmp/
+
+- name: Extract binaries
+  ansible.builtin.unarchive:
+    src: "/tmp/Godot_v{{ godot_version }}-stable_x11.64.zip"
+    dest: /opt/
+  become: true
+
+- name: Create link to path
+  ansible.builtin.file:
+    src: "/opt/Godot_v{{ godot_version }}-stable_x11.64"
+    dest: /usr/local/bin/godot
+    state: link
+  become: true
+
+- name: Create link to desktop shortcut
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/godot.desktop"
+    dest: /usr/share/applications/godot.desktop
+    state: link
+  become: true
+  notify:
+    - Update desktop database

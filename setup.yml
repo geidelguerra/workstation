@@ -74,7 +74,8 @@
       tags: [docker]
     - role: blender
       tags: [3d]
-    # - godot
+    - role: godot
+      tags: [godot]
     # - qbittorrent
     # - lutris
     # - discord
